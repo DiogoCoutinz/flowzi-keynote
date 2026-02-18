@@ -1,51 +1,119 @@
-import flowziLogo from '@/assets/flowzi-logo.png';
 import { SpeakerTag } from '../SpeakerTag';
-import { FlowziWatermark } from '../FlowziWatermark';
 
 export const Slide01 = () => (
-  <div className="relative w-full h-full slide-bg flex flex-col items-center justify-center overflow-hidden">
+  <div className="relative w-full h-full flex flex-col overflow-hidden" style={{ background: '#0B0F1A' }}>
     <SpeakerTag speaker="MARCELO + DIOGO" />
 
-    {/* Ambient background glow */}
-    <div className="absolute inset-0 pointer-events-none">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-10"
-        style={{ background: 'radial-gradient(circle, #1A6FFF 0%, transparent 70%)' }} />
+    {/* Hero photo - full bleed, centered on people */}
+    <div className="absolute inset-0">
+      <img
+        src="/fotodiogomarcelolanding.png"
+        alt="Marcelo e Diogo"
+        className="w-full h-full object-cover"
+        style={{ objectPosition: 'center 65%' }}
+      />
+      {/* Multi-layer gradient overlay for depth */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background: `
+            linear-gradient(to top,
+              rgba(11,15,26,0.98) 0%,
+              rgba(11,15,26,0.85) 25%,
+              rgba(11,15,26,0.4) 50%,
+              rgba(11,15,26,0.15) 70%,
+              rgba(11,15,26,0.3) 100%
+            )
+          `,
+        }}
+      />
+      {/* Side vignette */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background: 'radial-gradient(ellipse at 50% 40%, transparent 40%, rgba(11,15,26,0.6) 100%)',
+        }}
+      />
+      {/* Blue brand tint over photo */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background: 'radial-gradient(ellipse at 50% 35%, rgba(26,111,255,0.1) 0%, transparent 60%)',
+        }}
+      />
     </div>
 
-    {/* Flowzi logo */}
-    <div className="flex flex-col items-center gap-10 z-10">
-      <img
-        src={flowziLogo}
-        alt="Flowzi"
-        className="h-12 object-contain"
-        style={{ filter: 'invert(1)', opacity: 0.9 }}
-      />
+    {/* Subtle tech grid overlay */}
+    <div
+      className="absolute inset-0 pointer-events-none opacity-[0.03]"
+      style={{
+        backgroundImage: `
+          linear-gradient(rgba(26,111,255,0.5) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(26,111,255,0.5) 1px, transparent 1px)
+        `,
+        backgroundSize: '60px 60px',
+      }}
+    />
 
-      {/* Main headline */}
-      <div className="text-center">
-        <h1
-          className="font-black text-white leading-none tracking-tight"
-          style={{ fontSize: 'clamp(56px, 8vw, 96px)', letterSpacing: '-0.03em' }}
-        >
-          Do Zero aos <span className="gradient-text glow-metric">+4.000€</span>
-        </h1>
+    {/* Content container - centered */}
+    <div className="relative z-10 flex flex-col items-center justify-center h-full px-12">
+
+      {/* Logo with real colors in frosted glass pill */}
+      <div
+        className="mb-10 px-6 py-3 rounded-full"
+        style={{
+          background: 'rgba(255,255,255,0.92)',
+          backdropFilter: 'blur(20px)',
+          boxShadow: '0 4px 30px rgba(26,111,255,0.15), 0 0 60px rgba(26,111,255,0.08)',
+        }}
+      >
+        <img
+          src="/logo-lettering-preto.png"
+          alt="Flowzi"
+          className="h-8 object-contain"
+        />
       </div>
+
+      {/* Main headline - centered and massive */}
+      <h1
+        className="font-black text-white text-center leading-none tracking-tight"
+        style={{ fontSize: 'clamp(56px, 8vw, 100px)', letterSpacing: '-0.04em' }}
+      >
+        Do Zero aos{' '}
+        <span
+          className="relative inline-block"
+          style={{
+            color: '#ffffff',
+            textShadow: '0 2px 20px rgba(26,111,255,0.4)',
+          }}
+        >
+          +4.000&euro;
+          {/* Gradient underline accent */}
+          <span
+            className="absolute left-0 right-0 -bottom-2 h-1 rounded-full"
+            style={{
+              background: 'linear-gradient(90deg, #1A6FFF, #7B2FFF, #C026D3)',
+              boxShadow: '0 0 15px rgba(26,111,255,0.6), 0 0 30px rgba(123,47,255,0.3)',
+            }}
+          />
+        </span>
+      </h1>
+
+      {/* Glowing divider */}
+      <div className="glow-line w-48 h-px my-8" />
 
       {/* Subtitle */}
       <p
-        className="gradient-text text-center font-medium max-w-2xl"
-        style={{ fontSize: 'clamp(14px, 2vw, 20px)', lineHeight: 1.5 }}
+        className="text-white/60 text-center font-light max-w-lg"
+        style={{ fontSize: 'clamp(15px, 1.8vw, 20px)', lineHeight: 1.6 }}
       >
-        Como vendemos soluções de IA que ninguém estava a vender em Portugal
+        Como vendemos solucoes de IA que ninguem estava a vender em Portugal
       </p>
-
-      {/* Glowing divider */}
-      <div className="glow-line w-64 h-px" />
 
       {/* Speaker names */}
       <p
-        className="text-white/60 font-light tracking-widest uppercase"
-        style={{ fontSize: '13px', letterSpacing: '0.3em' }}
+        className="text-white/40 font-light tracking-widest uppercase mt-10"
+        style={{ fontSize: '12px', letterSpacing: '0.35em' }}
       >
         Marcelo &amp; Diogo — Flowzi
       </p>

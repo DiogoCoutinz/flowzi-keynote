@@ -7,52 +7,49 @@ export const Slide15 = () => (
 
     {/* Ambient glow */}
     <div className="absolute inset-0 pointer-events-none">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full opacity-10"
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full opacity-10"
         style={{ background: 'radial-gradient(circle, #7B2FFF 0%, transparent 70%)' }} />
     </div>
 
-    {/* Top split */}
-    <div className="flex flex-1 relative">
+    {/* TOP: massive statement */}
+    <div className="px-16 pt-20 z-10">
+      <p className="gradient-text font-black" style={{ fontSize: 'clamp(32px, 5vw, 68px)', letterSpacing: '-0.03em', lineHeight: 1.1 }}>
+        Mantem-te no jogo tempo suficiente.
+      </p>
+      <p className="text-white/50 mt-4 font-light" style={{ fontSize: 'clamp(14px, 1.5vw, 20px)' }}>
+        So perdes quando desistes.
+      </p>
+      <div className="glow-line h-px w-32 mt-6 opacity-50" />
+    </div>
+
+    {/* CENTER: Diogo & Marcelo quotes */}
+    <div className="flex flex-1 relative px-16 z-10">
       {/* DIOGO side */}
-      <div className="flex-1 flex items-center justify-center p-12 pr-16">
-        <div className="max-w-xs text-center">
+      <div className="flex-1 flex items-center justify-center pr-12">
+        <div className="max-w-xs">
           <p className="text-white/30 text-xs font-bold tracking-[0.25em] mb-4 uppercase">Diogo</p>
-          <p className="text-white font-semibold leading-relaxed" style={{ fontSize: 'clamp(15px, 1.8vw, 22px)' }}>
-            "10 meses de zero. Dois falhanços. Nunca parei."
+          <p className="text-white/80 font-semibold leading-relaxed" style={{ fontSize: 'clamp(14px, 1.5vw, 20px)' }}>
+            "10 meses de zero. Dois falhancos. Nunca parei."
           </p>
         </div>
       </div>
 
       {/* Vertical divider */}
-      <div className="absolute left-1/2 top-8 bottom-8 -translate-x-1/2 w-px glow-line-vertical" />
+      <div className="absolute left-1/2 top-4 bottom-4 -translate-x-1/2 w-px glow-line-vertical" style={{ opacity: 0.4 }} />
 
       {/* MARCELO side */}
-      <div className="flex-1 flex items-center justify-center p-12 pl-16">
-        <div className="max-w-xs text-center">
+      <div className="flex-1 flex items-center justify-center pl-12">
+        <div className="max-w-xs">
           <p className="text-white/30 text-xs font-bold tracking-[0.25em] mb-4 uppercase">Marcelo</p>
-          <p className="text-white font-semibold leading-relaxed" style={{ fontSize: 'clamp(15px, 1.8vw, 22px)' }}>
-            "6 anos a 300€. Uma transição. Um sócio. Um novo nível."
+          <p className="text-white/80 font-semibold leading-relaxed" style={{ fontSize: 'clamp(14px, 1.5vw, 20px)' }}>
+            "6 anos a 300&euro;. Uma transicao. Um socio. Um novo nivel."
           </p>
         </div>
       </div>
     </div>
 
-    {/* Center massive statement */}
-    <div className="text-center px-12 pb-6">
-      <p className="gradient-text font-black" style={{ fontSize: 'clamp(28px, 4.5vw, 64px)', letterSpacing: '-0.03em', lineHeight: 1.1 }}>
-        Mantém-te no jogo tempo suficiente.
-      </p>
-      <p className="text-white/50 mt-3 font-light" style={{ fontSize: 'clamp(14px, 1.5vw, 20px)' }}>
-        Só perdes quando desistes.
-      </p>
-    </div>
-
-    {/* Divider */}
-    <div className="glow-line h-px mx-12 opacity-50" />
-
-    {/* Bottom: logo + social handles */}
-    <div className="flex flex-col items-center gap-3 py-8">
-      {/* Logo glowing */}
+    {/* BOTTOM: logo + social handles */}
+    <div className="flex flex-col items-center gap-3 py-8 z-10">
       <div className="relative">
         <div className="absolute inset-0 blur-xl opacity-40"
           style={{ background: 'radial-gradient(circle, #1A6FFF 0%, transparent 70%)', transform: 'scale(2)' }} />
@@ -64,7 +61,6 @@ export const Slide15 = () => (
         />
       </div>
 
-      {/* Social handles */}
       <div className="flex items-center gap-6">
         {['@flowzi.pt', '@marcelosantos', '@diogocoutinho.ai'].map((handle) => (
           <span key={handle} className="gradient-text-muted font-medium" style={{ fontSize: 'clamp(11px, 1vw, 14px)' }}>
@@ -73,9 +69,8 @@ export const Slide15 = () => (
         ))}
       </div>
 
-      {/* Final caption */}
       <p className="text-white/30 text-center" style={{ fontSize: 'clamp(11px, 0.9vw, 14px)' }}>
-        Se querias uma razão para começar — acabaste de ter duas.
+        Se querias uma razao para comecar — acabaste de ter duas.
       </p>
     </div>
   </div>

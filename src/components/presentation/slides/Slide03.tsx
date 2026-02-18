@@ -1,79 +1,111 @@
 import { SpeakerTag } from '../SpeakerTag';
 import { FlowziWatermark } from '../FlowziWatermark';
-import { PlaceholderBox } from '../PlaceholderBox';
 
-interface TimelineNode {
-  title: string;
-  desc: string;
-  isFinal?: boolean;
-}
+const FailBadge = () => (
+  <span
+    className="inline-block px-2 py-0.5 rounded-full text-[9px] font-bold tracking-wider uppercase"
+    style={{
+      background: 'rgba(239,68,68,0.15)',
+      color: 'rgba(239,68,68,0.8)',
+      border: '1px solid rgba(239,68,68,0.2)',
+    }}
+  >
+    Falhado
+  </span>
+);
 
-const nodes: TimelineNode[] = [
-  { title: 'Erasmus Barcelona', desc: '"Aproveitem esta revolução."' },
-  { title: 'Janeiro — All‑In', desc: '+8h/dia. Zero euros. Sem garantias.' },
-  { title: 'Agente IA — Falhado', desc: '2‑3 meses. Grande demais sozinho.' },
-  { title: 'Pictus — Falhado', desc: 'Verão inteiro perdido. Não resultou.' },
-  { title: 'N8N — Tudo clicou', desc: 'Primeiro cliente. Os 10 meses deram frutos.' },
-  { title: '150K Views ✦', desc: '15 de dezembro. Vídeo viral. Centenas de leads.', isFinal: true },
-];
+const PhotoFrame = ({ src, className = '' }: { src: string; className?: string }) => (
+  <div
+    className={`rounded-lg overflow-hidden ${className}`}
+    style={{
+      border: '1px solid rgba(26,111,255,0.2)',
+      boxShadow: '0 4px 20px rgba(0,0,0,0.4)',
+    }}
+  >
+    <img src={src} alt="" className="w-full h-full object-cover" />
+  </div>
+);
 
 export const Slide03 = () => (
-  <div className="relative w-full h-full slide-bg flex flex-col justify-between overflow-hidden p-12 pb-10">
+  <div className="relative w-full h-full slide-bg flex flex-col overflow-hidden p-14">
     <SpeakerTag speaker="DIOGO" />
     <FlowziWatermark />
 
-    {/* Title */}
-    <div className="pt-8">
-      <h2 className="text-white/40 text-xs font-bold tracking-[0.3em] uppercase mb-2">A Jornada</h2>
-      <h1 className="text-white font-black" style={{ fontSize: 'clamp(28px, 3.5vw, 44px)', letterSpacing: '-0.02em' }}>
-        A História do <span className="gradient-text">Diogo</span>
+    {/* TOP: Title */}
+    <div className="pt-6 mb-6 z-10">
+      <p className="text-white/40 text-xs font-bold tracking-[0.3em] uppercase mb-3">A Jornada — Parte 1</p>
+      <h1 className="text-white font-black" style={{ fontSize: 'clamp(28px, 3.5vw, 48px)', letterSpacing: '-0.03em' }}>
+        Os <span className="gradient-text">10 Meses</span> de Zero
       </h1>
     </div>
 
-    {/* Timeline */}
-    <div className="flex-1 flex flex-col justify-center">
-      {/* Timeline row */}
-      <div className="flex items-start gap-0 relative mt-4">
-        {nodes.map((node, i) => (
-          <div key={i} className="flex items-start flex-1 min-w-0">
-            <div className="flex flex-col items-center w-full">
-              {/* Label above */}
-              <div className="text-center mb-3 px-1" style={{ minHeight: '52px' }}>
-                <p className={`font-bold text-white leading-tight ${node.isFinal ? 'gradient-text' : ''}`}
-                  style={{ fontSize: 'clamp(9px, 1vw, 12px)' }}>
-                  {node.title}
-                </p>
-                <p className="text-white/40 mt-1 leading-tight" style={{ fontSize: 'clamp(8px, 0.8vw, 10px)' }}>
-                  {node.desc}
-                </p>
-              </div>
-              {/* Node + line */}
-              <div className="flex items-center w-full">
-                {i > 0 && <div className="timeline-line" />}
-                <div className={node.isFinal ? 'timeline-node-final' : 'timeline-node'} />
-                {i < nodes.length - 1 && <div className="timeline-line" />}
-              </div>
-            </div>
-          </div>
-        ))}
+    {/* Story blocks row */}
+    <div className="flex gap-4 mb-6 z-10">
+      <div className="glow-border-left pl-5 py-3 flex-1">
+        <p className="text-white font-bold mb-1" style={{ fontSize: 'clamp(12px, 1.1vw, 15px)' }}>
+          Erasmus — A Semente
+        </p>
+        <p className="text-white/50 font-light leading-relaxed" style={{ fontSize: 'clamp(10px, 0.9vw, 12px)' }}>
+          Barcelona. Professor obcecado com IA:{' '}
+          <span className="text-white/80 italic">"Aproveitem esta revolucao."</span>
+        </p>
       </div>
-
-      {/* Placeholder prints */}
-      <div className="grid grid-cols-3 gap-3 mt-6">
-        <PlaceholderBox label="Pictus App — prints da app e produtos" className="h-24" />
-        <PlaceholderBox label="N8N Dashboards — projetos iniciais" className="h-24" />
-        <PlaceholderBox label="Vídeo viral — 150K views + DMs" className="h-24" />
+      <div className="glow-border-left pl-5 py-3 flex-1">
+        <p className="text-white font-bold mb-1" style={{ fontSize: 'clamp(12px, 1.1vw, 15px)' }}>
+          Janeiro — All-In
+        </p>
+        <p className="text-white/50 font-light leading-relaxed" style={{ fontSize: 'clamp(10px, 0.9vw, 12px)' }}>
+          +8h/dia. Zero euros. Sem garantias. Uma decisao deliberada.
+        </p>
       </div>
     </div>
 
-    {/* Bottom statement */}
-    <div className="border-t border-white/10 pt-6">
-      <p className="text-white font-black" style={{ fontSize: 'clamp(22px, 2.8vw, 36px)', letterSpacing: '-0.02em' }}>
-        "Não fechei nenhum lead sozinho."
+    {/* Two failed projects side by side with photos */}
+    <div className="flex-1 flex gap-6 z-10 min-h-0">
+      {/* Project 1: Agente IA */}
+      <div className="flex-1 flex flex-col gap-3 min-h-0">
+        <div className="flex items-center gap-3">
+          <p className="text-white font-bold" style={{ fontSize: 'clamp(13px, 1.2vw, 16px)' }}>
+            1a Tentativa — Agente IA
+          </p>
+          <FailBadge />
+        </div>
+        <p className="text-white/40 font-light" style={{ fontSize: 'clamp(10px, 0.9vw, 12px)' }}>
+          2-3 meses. Ambicioso demais para executar sozinho.
+        </p>
+        <div className="flex gap-2 flex-1 min-h-0">
+          <PhotoFrame src="/fotohistoria/1project.png" className="flex-1" />
+          <PhotoFrame src="/fotohistoria/1project2.png" className="flex-1" />
+        </div>
+      </div>
+
+      {/* Divider */}
+      <div className="w-px self-stretch glow-line-vertical" style={{ opacity: 0.3 }} />
+
+      {/* Project 2: PicTuz */}
+      <div className="flex-1 flex flex-col gap-3 min-h-0">
+        <div className="flex items-center gap-3">
+          <p className="text-white font-bold" style={{ fontSize: 'clamp(13px, 1.2vw, 16px)' }}>
+            2a Tentativa — PicTuz
+          </p>
+          <FailBadge />
+        </div>
+        <p className="text-white/40 font-light" style={{ fontSize: 'clamp(10px, 0.9vw, 12px)' }}>
+          Verao inteiro. Site, loja, operacao. Nao resultou.
+        </p>
+        <div className="flex gap-2 flex-1 min-h-0">
+          <PhotoFrame src="/fotohistoria/2project.png" className="flex-1" />
+          <PhotoFrame src="/fotohistoria/2project2.png" className="flex-1" />
+        </div>
+      </div>
+    </div>
+
+    {/* Bottom quote */}
+    <div className="pt-5 z-10 border-t border-white/10 mt-4">
+      <p className="text-white/80 font-bold italic" style={{ fontSize: 'clamp(15px, 1.5vw, 20px)' }}>
+        "So perdes quando desistes."
       </p>
-      <p className="text-white/40 mt-2 font-light" style={{ fontSize: 'clamp(12px, 1.2vw, 16px)' }}>
-        Sabia construir. Não sabia vender.
-      </p>
+      <p className="text-white/30 text-xs mt-1">Cada projeto que falhou ensinou coisas que iam ser precisas mais a frente.</p>
     </div>
   </div>
 );

@@ -3,6 +3,7 @@ import { Maximize2, Minimize2, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Slide01 } from './slides/Slide01';
 import { Slide02 } from './slides/Slide02';
 import { Slide03 } from './slides/Slide03';
+import { Slide03B } from './slides/Slide03B';
 import { Slide04 } from './slides/Slide04';
 import { Slide05 } from './slides/Slide05';
 import { Slide06 } from './slides/Slide06';
@@ -17,7 +18,7 @@ import { Slide14 } from './slides/Slide14';
 import { Slide15 } from './slides/Slide15';
 
 const slides = [
-  Slide01, Slide02, Slide03, Slide04, Slide05,
+  Slide01, Slide02, Slide03, Slide03B, Slide04, Slide05,
   Slide06, Slide07, Slide08, Slide09, Slide10,
   Slide11, Slide12, Slide13, Slide14, Slide15,
 ];
@@ -147,7 +148,7 @@ export const Presentation = () => {
     <div
       ref={containerRef}
       className="relative w-full h-full overflow-hidden"
-      style={{ background: '#000', cursor: showControls ? 'default' : 'none' }}
+      style={{ background: '#0B0F1A', cursor: showControls ? 'default' : 'none' }}
       tabIndex={0}
     >
       {/* Progress bar */}

@@ -55,7 +55,7 @@
   html, body, #root {
     height: 100%;
     overflow: hidden;
-    background: #000000;
+    background: #0B0F1A;
     color: #ffffff;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   }
@@ -109,7 +109,7 @@
   }
 
   .slide-bg {
-    background: #000000;
+    background: #0B0F1A;
   }
 
   .placeholder-box {
